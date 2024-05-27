@@ -16,10 +16,10 @@ MonoBehaviour:
   - title: Electric Ark Trajectory
     position:
       serializedVersion: 2
-      x: -2993
-      y: 358
-      width: 1440
-      height: 413
+      x: -2994
+      y: 355
+      width: 1472
+      height: 417
     contents:
     - model: {fileID: 8926484042661614595}
       id: 0
@@ -43,10 +43,10 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: -2993
+    x: -2994
     y: -113
-    width: 5906
-    height: 2501
+    width: 5939
+    height: 2576
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -224,7 +224,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614596}
       inputSlot: {fileID: 8926484042661615279}
-    position: {x: -2920, y: 471}
+    position: {x: -2920.8, y: 471.19998}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614596
@@ -304,7 +304,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614627}
       inputSlot: {fileID: 8926484042661615278}
-    position: {x: -2923, y: 415}
+    position: {x: -2922.4001, y: 415.19998}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614627
@@ -4134,7 +4134,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: -2671, y: 437}
+  m_UIPosition: {x: -2670, y: 437}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
