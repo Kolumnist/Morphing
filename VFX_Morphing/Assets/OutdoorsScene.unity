@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2260.2424, g: 2400.5432, b: 3496.2622, a: 1}
+  m_IndirectSpecularColor: {r: 2260.2424, g: 2400.5432, b: 3496.2544, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -606,7 +606,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1123568648
+--- !u!1 &1729985138
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -614,24 +614,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1123568651}
-  - component: {fileID: 1123568650}
-  - component: {fileID: 1123568649}
+  - component: {fileID: 1729985141}
+  - component: {fileID: 1729985140}
+  - component: {fileID: 1729985139}
   m_Layer: 0
-  m_Name: FIrework_1
+  m_Name: FireworkSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!73398921 &1123568649
+--- !u!73398921 &1729985139
 VFXRenderer:
   serializedVersion: 1
   m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123568648}
+  m_GameObject: {fileID: 1729985138}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -664,15 +664,15 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!2083052967 &1123568650
+--- !u!2083052967 &1729985140
 VisualEffect:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123568648}
+  m_GameObject: {fileID: 1729985138}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: b142810151185ae40ae3eae2f562c17c, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 997bb9b53ad954d45813c6e5cb0c2946, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -702,16 +702,16 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
---- !u!4 &1123568651
+--- !u!4 &1729985141
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123568648}
+  m_GameObject: {fileID: 1729985138}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0695839, y: 1.6, z: 0.14972416}
+  m_LocalPosition: {x: -5.08, y: 1.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -997,4 +997,4 @@ SceneRoots:
   - {fileID: 2013410475}
   - {fileID: 4959878}
   - {fileID: 254382872}
-  - {fileID: 1123568651}
+  - {fileID: 1729985141}
