@@ -11,9 +11,12 @@ public class PlayerController : MonoBehaviour
 
 	[SerializeField]
 	private Transform mainCamera;
+
+	[SerializeField]
+	private Animator animator;
+
 	public static float move_speed = 5;
 	private Vector3 velocity = Vector3.zero;
-
 
 	private InputReader inputReader;
 
@@ -22,12 +25,24 @@ public class PlayerController : MonoBehaviour
 		mainCamera = Camera.main.transform;
 		inputReader = GetComponent<InputReader>();
 		player = GetComponent<CharacterController>();
+		animator = GetComponent<Animator>();
 	}
 
 	void Update()
 	{
 		CalculateMove();
 		player.Move(velocity * Time.deltaTime);
+		FaceMoveDirection();
+	}
+
+	public void FaceMoveDirection()
+	{
+		Vector3 faceDirection = new(inputReader.MouseDelta.x, 0f, inputReader.MouseDelta.y);
+
+		if (faceDirection == Vector3.zero)
+			return;
+
+		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(faceDirection), Time.deltaTime);
 	}
 
 	public void CalculateMove()
@@ -43,5 +58,6 @@ public class PlayerController : MonoBehaviour
 			y = 0,
 			z = moveDirection.z * move_speed
 		};
+		animator.SetFloat("MoveSpeed", velocity != Vector3.zero ? 0.5f : 0f);
 	}
 }
