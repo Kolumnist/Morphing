@@ -8,8 +8,10 @@ public class ActivateWarpScript : MonoBehaviour
 {
 	[SerializeField]
 	private VisualEffect warpEffect;
+	[SerializeField]
+	private MeshRenderer warpRenderer;
 
-	public float speedRate = 0.1f;
+	public float speedRate = 0.01f;
 
 	private float warpProgress = 0f;
 	private bool warpActive = false;
@@ -18,6 +20,7 @@ public class ActivateWarpScript : MonoBehaviour
 	{
 		warpEffect.Stop();
 		warpEffect.SetFloat("WarpProgress", 0);
+		warpRenderer.material.SetFloat("_WarpProgress", 0);
 	}
 
 	void Update()
@@ -38,26 +41,34 @@ public class ActivateWarpScript : MonoBehaviour
 
 	private IEnumerator ActivateWarp()
 	{
-		warpEffect.Play();
 		warpProgress = speedRate + warpEffect.GetFloat("WarpProgress");
-		while (warpProgress < 1)
+
+		if (warpActive)
 		{
-			warpProgress += speedRate * Time.deltaTime;
-			warpEffect.SetFloat("WarpProgress", warpProgress);
-			yield return new WaitForSeconds(0.01f);
+			warpEffect.Play();
+			while (warpActive && warpProgress < 1)
+			{
+				warpProgress += warpProgress * warpProgress * warpProgress * warpProgress;
+				warpProgress = Mathf.Min(1f, warpProgress);
+				warpEffect.SetFloat("WarpProgress", warpProgress);
+				warpRenderer.material.SetFloat("_WarpProgress", warpProgress);
+				yield return new WaitForSeconds(0.01f);
+			}
 		}
 
-		if (!warpActive)
+		while (!warpActive && warpProgress > 0)
 		{
-			warpProgress = speedRate + warpEffect.GetFloat("WarpProgress");
-			while (warpProgress > 0)
-			{
-				warpProgress -= speedRate;
-				warpEffect.SetFloat("WarpProgress", warpProgress);
-				yield return new WaitForSeconds(0.01f);
+			warpProgress -= speedRate;
+			warpEffect.SetFloat("WarpProgress", warpProgress);
+			warpRenderer.material.SetFloat("_WarpProgress", warpProgress);
+			yield return new WaitForSeconds(0.01f);
 
-				if (warpProgress <= speedRate)
-					warpEffect.Stop();
+			if (warpProgress <= speedRate)
+			{
+				warpProgress = 0;
+				warpEffect.SetFloat("WarpProgress", warpProgress);
+				warpRenderer.material.SetFloat("_WarpProgress", warpProgress);
+				warpEffect.Stop();
 			}
 		}
 	}

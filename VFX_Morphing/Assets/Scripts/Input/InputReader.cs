@@ -35,6 +35,11 @@ public class InputReader : MonoBehaviour, PlayerActionControls.IPlayerActions
 		MoveXZ = context.ReadValue<Vector2>();
 	}
 
+	public void OnWarp(InputAction.CallbackContext context)
+	{
+
+	}
+
 	public void OnFire(InputAction.CallbackContext context)
 	{
 		throw new NotImplementedException();
