@@ -1,6 +1,8 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -10,8 +12,12 @@ public class ActivateWarpScript : MonoBehaviour
 	private VisualEffect warpEffect;
 	[SerializeField]
 	private MeshRenderer warpRenderer;
+	[SerializeField]
+	private CinemachineVirtualCamera virtualCamera;
 
 	public float speedRate = 0.01f;
+
+	private CinemachineBasicMultiChannelPerlin channel;
 
 	private float warpProgress = 0f;
 	private bool warpActive = false;
@@ -20,6 +26,8 @@ public class ActivateWarpScript : MonoBehaviour
 	{
 		warpEffect.Stop();
 		warpEffect.SetFloat("WarpProgress", 0);
+		channel = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+		channel.m_AmplitudeGain = 0f;
 		warpRenderer.material.SetFloat("_WarpProgress", 0);
 	}
 
@@ -52,6 +60,8 @@ public class ActivateWarpScript : MonoBehaviour
 				warpProgress = Mathf.Min(1f, warpProgress);
 				warpEffect.SetFloat("WarpProgress", warpProgress);
 				warpRenderer.material.SetFloat("_WarpProgress", warpProgress);
+				channel.m_AmplitudeGain = warpProgress;
+
 				yield return new WaitForSeconds(0.01f);
 			}
 		}
@@ -61,6 +71,7 @@ public class ActivateWarpScript : MonoBehaviour
 			warpProgress -= speedRate;
 			warpEffect.SetFloat("WarpProgress", warpProgress);
 			warpRenderer.material.SetFloat("_WarpProgress", warpProgress);
+			channel.m_AmplitudeGain = warpProgress;
 			yield return new WaitForSeconds(0.01f);
 
 			if (warpProgress <= speedRate)
@@ -68,6 +79,7 @@ public class ActivateWarpScript : MonoBehaviour
 				warpProgress = 0;
 				warpEffect.SetFloat("WarpProgress", warpProgress);
 				warpRenderer.material.SetFloat("_WarpProgress", warpProgress);
+				channel.m_AmplitudeGain = warpProgress;
 				warpEffect.Stop();
 			}
 		}

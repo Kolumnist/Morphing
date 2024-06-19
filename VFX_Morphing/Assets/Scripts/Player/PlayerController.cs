@@ -6,19 +6,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-	[SerializeField]
-	private CharacterController player;
-
-	[SerializeField]
-	private Transform mainCamera;
-
-	[SerializeField]
-	private Animator animator;
-
 	public static float move_speed = 5;
 	private Vector3 velocity = Vector3.zero;
 
 	private InputReader inputReader;
+
+	private CharacterController player;
+	private Transform mainCamera;
+	private Animator animator;
 
 	void Start()
 	{
@@ -31,13 +26,17 @@ public class PlayerController : MonoBehaviour
 	void Update()
 	{
 		CalculateMove();
+		if (!player.isGrounded)
+		{
+			velocity.y = Physics.gravity.y;
+		}
 		player.Move(velocity * Time.deltaTime);
 		FaceMoveDirection();
 	}
 
 	public void FaceMoveDirection()
 	{
-		Vector3 faceDirection = new(inputReader.MouseDelta.x, 0f, inputReader.MouseDelta.y);
+		Vector3 faceDirection = new(velocity.x, 0f, velocity.z);
 
 		if (faceDirection == Vector3.zero)
 			return;
