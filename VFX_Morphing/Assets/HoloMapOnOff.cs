@@ -43,5 +43,4 @@ public class HoloMapOnOff : MonoBehaviour
 		holoMap.Play();
 		active = true;
 	}
-
 }
