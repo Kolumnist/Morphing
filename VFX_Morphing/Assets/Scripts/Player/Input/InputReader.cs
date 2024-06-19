@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OpenCover.Framework.Model;
+using System;
+using Unity.VisualScripting;
 using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,6 +9,9 @@ public class InputReader : MonoBehaviour, PlayerActionControls.IPlayerActions
 {
 	public Vector2 MouseDelta;
 	public Vector2 MoveXZ;
+
+	[DoNotSerialize]
+	public Action Interaction { get; set; }
 
 	private PlayerActionControls controls;
 
@@ -42,6 +47,15 @@ public class InputReader : MonoBehaviour, PlayerActionControls.IPlayerActions
 
 	public void OnFire(InputAction.CallbackContext context)
 	{
-		throw new NotImplementedException();
+		return;
+	}
+
+	public void OnInteract(InputAction.CallbackContext context)
+	{
+		if (context.started && Interaction != null)
+		{
+			Interaction();
+		}
+		return;
 	}
 }

@@ -20,7 +20,6 @@ public class CircularMovement : MonoBehaviour
     public float moveSpeed = 2.15f;
 
     private VisualEffect particleTrail;
-    private Vector3 startingPosition;
     private Vector2 velocity;
 
     private bool visible = true;
@@ -29,7 +28,6 @@ public class CircularMovement : MonoBehaviour
     {
         particleTrail = GetComponent<VisualEffect>();
 
-        startingPosition = transform.position;
         velocity = new Vector2(moveSpeed, moveSpeed);
 		velocity *= new Vector2(transform.forward.x, transform.forward.z);
 		StartCoroutine(ErodeObject());

@@ -6,10 +6,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+	public GameObject pressToInteract;
+
 	public static float move_speed = 5;
 	private Vector3 velocity = Vector3.zero;
 
 	private InputReader inputReader;
+	public InputReader GetInputReader() { return inputReader; }
 
 	private CharacterController player;
 	private Transform mainCamera;
@@ -21,6 +24,11 @@ public class PlayerController : MonoBehaviour
 		inputReader = GetComponent<InputReader>();
 		player = GetComponent<CharacterController>();
 		animator = GetComponent<Animator>();
+
+		pressToInteract.SetActive(false);
+
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 	}
 
 	void Update()

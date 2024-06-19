@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Rotate : MonoBehaviour
 {
-    void Update()
+    public float rotationSpeedX = 0f;
+	public float rotationSpeedY = 10f;
+	public float rotationSpeedZ = 0f;
+
+	void Update()
     {
-        transform.Rotate(new Vector3(0f, 10f, 0f) * Time.deltaTime);
+        transform.Rotate(new Vector3(rotationSpeedX, rotationSpeedY, rotationSpeedZ) * Time.deltaTime);
     }
 }
