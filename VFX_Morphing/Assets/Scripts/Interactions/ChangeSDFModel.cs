@@ -3,24 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class HoloMapOnOff : MonoBehaviour
+public class ChangeSDFModel : MonoBehaviour
 {
-	private VisualEffect holoMap;
-	private bool active = true;
-	private InputReader inputReader;
+    [SerializeField]
+    private Texture3D textureSDF;
+    [SerializeField]
+    private VisualEffect effectSDF;
 
-    void Start()
-	{
-		holoMap = GetComponent<VisualEffect>();
-	}
+	private InputReader inputReader;
 
 	private void OnTriggerEnter(Collider player)
 	{
-		if(!player.CompareTag("Player")) return;
+		if (!player.CompareTag("Player")) return;
 		var playerControllerScript = player.gameObject.GetComponent<PlayerController>();
 		playerControllerScript.pressToInteract.SetActive(true);
 		inputReader = playerControllerScript.GetInputReader();
-		inputReader.Interaction = OnOff;
+		inputReader.Interaction = SwitchSDFTexture;
 	}
 
 	private void OnTriggerExit(Collider player)
@@ -32,15 +30,8 @@ public class HoloMapOnOff : MonoBehaviour
 		inputReader.Interaction = null;
 	}
 
-	protected void OnOff()
+	protected void SwitchSDFTexture()
 	{
-        if (active)
-        {
-			holoMap.Stop();
-			active = false;
-			return;
-		}
-		holoMap.Play();
-		active = true;
+		effectSDF.SetTexture("SDF", textureSDF);
 	}
 }

@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class ChangeSDFModel : MonoBehaviour
+public class InteractOnOffVFX : MonoBehaviour
 {
-    [SerializeField]
-    private Texture3D textureSDF;
-    [SerializeField]
-    private VisualEffect morphSDF;
-
+	private VisualEffect vfx;
+	private bool active = true;
 	private InputReader inputReader;
+
+    void Start()
+	{
+		vfx = GetComponent<VisualEffect>();
+	}
 
 	private void OnTriggerEnter(Collider player)
 	{
-		if (!player.CompareTag("Player")) return;
+		if(!player.CompareTag("Player")) return;
 		var playerControllerScript = player.gameObject.GetComponent<PlayerController>();
 		playerControllerScript.pressToInteract.SetActive(true);
 		inputReader = playerControllerScript.GetInputReader();
-		inputReader.Interaction = SwitchSDFTexture;
+		inputReader.Interaction = OnOff;
 	}
 
 	private void OnTriggerExit(Collider player)
@@ -30,8 +32,15 @@ public class ChangeSDFModel : MonoBehaviour
 		inputReader.Interaction = null;
 	}
 
-	protected void SwitchSDFTexture()
+	protected void OnOff()
 	{
-		morphSDF.SetTexture("SDF", textureSDF);
+        if (active)
+        {
+			vfx.Stop();
+			active = false;
+			return;
+		}
+		vfx.Play();
+		active = true;
 	}
 }
