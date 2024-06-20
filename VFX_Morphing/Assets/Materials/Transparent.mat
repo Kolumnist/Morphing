@@ -23,7 +23,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
+  m_Name: Transparent
   m_Shader: {fileID: -6465566751694194690, guid: ed595281bdf712647a34a7b60ea3d23b,
     type: 3}
   m_Parent: {fileID: 0}
