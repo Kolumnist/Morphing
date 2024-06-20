@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class InteractOnOffVFX : MonoBehaviour
+public class OnOffVFX : MonoBehaviour
 {
 	private VisualEffect vfx;
 	private bool active = true;

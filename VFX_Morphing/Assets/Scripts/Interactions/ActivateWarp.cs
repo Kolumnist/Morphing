@@ -1,15 +1,10 @@
 using Cinemachine;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class ActivateWarpScript : MonoBehaviour
+public class ActivateWarp : MonoBehaviour
 {
-	[SerializeField]
-	private VisualEffect warpEffect;
 	[SerializeField]
 	private MeshRenderer warpRenderer;
 	[SerializeField]
@@ -17,15 +12,19 @@ public class ActivateWarpScript : MonoBehaviour
 
 	public float speedRate = 0.01f;
 
+	private VisualEffect warpEffect;
 	private CinemachineBasicMultiChannelPerlin channel;
+	private InputReader inputReader;
 
 	private float warpProgress = 0f;
 	private bool warpActive = false;
 
 	void Start()
 	{
+		warpEffect = GetComponent<VisualEffect>();
 		warpEffect.Stop();
 		warpEffect.SetFloat("WarpProgress", 0);
+
 		channel = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 		channel.m_AmplitudeGain = 0f;
 		warpRenderer.material.SetFloat("_WarpProgress", 0);
@@ -33,21 +32,10 @@ public class ActivateWarpScript : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.O))
-		{
-			warpActive = true;
-			StartCoroutine(ActivateWarp());
-		}
-		else if (Input.GetKeyUp(KeyCode.O))
-		{
-			warpActive = false;
-			StartCoroutine(ActivateWarp());
-		}
-
 		warpEffect.SetFloat("WarpProgress", warpProgress);
 	}
 
-	private IEnumerator ActivateWarp()
+	private IEnumerator Activate()
 	{
 		warpProgress = speedRate + warpEffect.GetFloat("WarpProgress");
 
@@ -82,6 +70,39 @@ public class ActivateWarpScript : MonoBehaviour
 				channel.m_AmplitudeGain = warpProgress;
 				warpEffect.Stop();
 			}
+		}
+	}
+
+	private void OnTriggerEnter(Collider player)
+	{
+		if (!player.CompareTag("Player")) return;
+		var playerControllerScript = player.gameObject.GetComponent<PlayerController>();
+		playerControllerScript.pressToInteract.SetActive(true);
+		inputReader = playerControllerScript.GetInputReader();
+		inputReader.Interaction = WarpSwitch;
+	}
+
+	private void OnTriggerExit(Collider player)
+	{
+		if (!player.CompareTag("Player")) return;
+		var playerControllerScript = player.gameObject.GetComponent<PlayerController>();
+		playerControllerScript.pressToInteract.SetActive(false);
+		inputReader = playerControllerScript.GetInputReader();
+		inputReader.Interaction = null;
+	}
+
+	protected void WarpSwitch()
+	{
+		if (!warpActive)
+		{
+			warpActive = true;
+			StartCoroutine(Activate());
+			return;
+		}
+		else if (warpActive)
+		{
+			warpActive = false;
+			StartCoroutine(Activate());
 		}
 	}
 }
