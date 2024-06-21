@@ -11760,7 +11760,7 @@ MonoBehaviour:
   uvMode: 0
   flipbookLayout: 0
   useSoftParticle: 1
-  vfxSystemSortPriority: 1
+  vfxSystemSortPriority: 3
   sort: 0
   sortMode: 0
   revertSorting: 0
@@ -12714,7 +12714,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":4.0,"y":-0.5,"z":-0.10000000149011612}}'
+      m_SerializableObject: '{"vector":{"x":4.0,"y":-0.800000011920929,"z":-0.10000000149011612}}'
     m_Space: 0
   m_Property:
     name: A
