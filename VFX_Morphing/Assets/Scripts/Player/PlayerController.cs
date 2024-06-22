@@ -1,14 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
 	public GameObject pressToInteract;
 
-	public static float move_speed = 5;
+	public static float move_speed = 4;
 	private Vector3 velocity = Vector3.zero;
 
 	private InputReader inputReader;
