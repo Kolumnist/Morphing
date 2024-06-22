@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 		if (faceDirection == Vector3.zero)
 			return;
 
-		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(faceDirection), Time.deltaTime);
+		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(faceDirection), 2*Time.deltaTime);
 	}
 
 	public void CalculateMove()

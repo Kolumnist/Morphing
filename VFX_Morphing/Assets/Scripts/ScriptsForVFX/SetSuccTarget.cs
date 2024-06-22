@@ -15,7 +15,7 @@ public class SetSuccTarget : MonoBehaviour
 	{
         if (playerControllerScript != null)
         {
-			vfx.SetVector3("SuccTarget", playerControllerScript.gameObject.transform.position - transform.position + new Vector3(0,1.45f,0));
+			vfx.SetVector3("SuccTarget", playerControllerScript.gameObject.transform.position - transform.position + new Vector3(0,1.3f,0));
 		}
     }
 
