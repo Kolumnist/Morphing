@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.03153535, g: 0.023452796, b: 0.017953454, a: 1}
+  m_IndirectSpecularColor: {r: 0.03151996, g: 0.023439601, b: 0.017938402, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -699,7 +699,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f5ed526b0709eda439d3ce8caf17c53d, type: 2}
-  - {fileID: 2100000, guid: 070b86484692843458bf3e46bbd7fc77, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15854,7 +15853,7 @@ Transform:
   m_GameObject: {fileID: 561100130}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4928484, y: 0, z: 0.08426285}
+  m_LocalPosition: {x: 0.49284863, y: 0, z: 0.08426285}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26412,7 +26411,6 @@ GameObject:
   - component: {fileID: 982085880}
   - component: {fileID: 982085883}
   - component: {fileID: 982085882}
-  - component: {fileID: 982085881}
   m_Layer: 0
   m_Name: HealingFlamethrower
   m_TagString: Untagged
@@ -26435,18 +26433,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1428690233}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &982085881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 982085879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87a6fdf1ea3a84947bdd6f6a90779392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!73398921 &982085882
 VFXRenderer:
   serializedVersion: 1
@@ -29663,7 +29649,6 @@ GameObject:
   - component: {fileID: 1115503991}
   - component: {fileID: 1115503994}
   - component: {fileID: 1115503993}
-  - component: {fileID: 1115503992}
   m_Layer: 0
   m_Name: NormalFlamethrower
   m_TagString: Untagged
@@ -29686,18 +29671,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 558664963}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1115503992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115503989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87a6fdf1ea3a84947bdd6f6a90779392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!73398921 &1115503993
 VFXRenderer:
   serializedVersion: 1
@@ -31030,7 +31003,6 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 070b86484692843458bf3e46bbd7fc77, type: 2}
   - {fileID: 2100000, guid: f5ed526b0709eda439d3ce8caf17c53d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -36345,7 +36317,6 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 070b86484692843458bf3e46bbd7fc77, type: 2}
   - {fileID: 2100000, guid: f5ed526b0709eda439d3ce8caf17c53d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -48349,8 +48320,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823688464}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15869069, y: -0.7408573, z: 0.18812379, w: 0.62494576}
-  m_LocalPosition: {x: 0.4928484, y: 0, z: 0.08426285}
+  m_LocalRotation: {x: 0.15869068, y: -0.7408573, z: 0.18812378, w: 0.62494576}
+  m_LocalPosition: {x: 0.49284863, y: 0, z: 0.08426285}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55898,7 +55869,7 @@ Transform:
   m_GameObject: {fileID: 2056364943}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13273539, y: -0.7479971, z: 0.15735444, w: 0.6309685}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.00000023841858, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
